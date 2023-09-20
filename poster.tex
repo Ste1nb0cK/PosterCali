@@ -7,8 +7,9 @@
  % \printinunitsof{in}\prntlen{\columnwidth}
 
 \usepackage[T1]{fontenc}
+\usepackage{relsize}
 \usepackage{lmodern}
-\usepackage[orientation=portrait,size=a0,scale=1.2]{beamerposter}
+\usepackage[orientation=portrait,size=a0,scale=1.11]{beamerposter}
 \usetheme{gemini}
 \usecolortheme{nott}
 \usepackage{graphicx}
@@ -61,7 +62,7 @@
 % Title
 % ====================
 
-\title{ Precision Bounds in Bosonic Channels}
+\title{ Precision Bounds In Bosonic Channels}
 
 \author{Nicolás A. Niño-Salas  \and Carlos Viviescas }
 
@@ -128,7 +129,7 @@
   \end{equation*}
 }
   In quantum mechanics all possible processes that a systems may undergo can be viewed in an \textbf{\textit{Enviroment+System} (SE)} scheme,
-in which the \texttit{\textbf{Open Dynamics}} are induced by the marginalization of the unitary evolution of
+in which the \textit{\textbf{Open Dynamics}} are induced by the marginalization of the unitary evolution of
 $\mathcal{H}_{S}\otimes\mathcal{H}_{E}$: the characterization of any physical process can be understood as the estimation of an unknown parameter $\gamma$.
   \end{block}
 % ----------------------------------
@@ -136,20 +137,15 @@ $\mathcal{H}_{S}\otimes\mathcal{H}_{E}$: the characterization of any physical pr
 % ----------------------------------
   \begin{block}{Not All Measurements are Made Equal}
     To actually perform the estimation one needs choose a quantity $x$ to measure and a \textbf{\textit{Positive
-      Operator Valued Measure (POVM)}} $\{\Pi_{x}\}_{x \in \mathbb{R}}$.\\
-% {\Large
-   \begin{equation*}
-     \wp(x | \gamma)= \mathrm{Tr}\left[\Pi_{x} \rho_{\gamma}\right]
-   \end{equation*}
-% }
+      Operator Valued Measure (POVM)}} $\{\Pi_{x}\}_{x \in \mathbb{R}}$.
+\[\scalebox{1.7}{$\displaystyle \wp(x|\gamma)= \mathrm{Tr}\left[\Pi_{x} \rho_{\gamma}\right] $}\]
+
 The task is estimating a parameter from a probability
 distribution: \textit{\textbf{Statistical Inference}}.
 Any estimator has a variance bounded from below by the inverse of the \textit{\textbf{Fisher Information (FI)}}:
-% {\Large
-  \begin{align*}
-    \Delta^{2}\gamma \geq & \frac{1}{F(\gamma)} & F(\gamma) = \int  \wp(x | \gamma) \left(\frac{\partial}{\partial\gamma} \mathrm{Ln}  [\wp(x |\gamma)]\right)^{2} dx.
-  \end{align*}
-% }
+  \[\scalebox{1.5}{$\displaystyle
+\Delta^{2}\gamma\geq\frac{1}{F(\gamma)} \hspace{1cm} F(\gamma) = \int  \wp(x | \gamma) \left(\frac{\partial}{\partial\gamma} \mathrm{Ln}  [\wp(x |\gamma)]\right)^{2} dx.
+$}\]
 The LHS is known as the \textit{\textbf{Cramer-Rao Bound (CRB)}}.\\
 Different POVMs will lead to different FIs: some are better than others.
 \end{block}
@@ -160,40 +156,39 @@ Different POVMs will lead to different FIs: some are better than others.
  \begin{block}{Anatomy of a Metrology Problem}
    The objective of any metrology problem is, given a fixed amount of resources, to estimate a parameter with the minimum possible error.
    % Tweak distance to the image
-   \vspace{-0.07\linewidth}
+   \vspace{-0.01\linewidth}
    \include{images/figure1}
  % Tweak distance to the image
    \vspace{-0.11\linewidth}
-   The interesting thing about  \textbf{\textit{Precision Bounds}} is not so much the actual value but how it scales with the number of
+   The interesting thing about \textbf{\textit{Precision Bounds}} is not so much the actual value but how it scales with the number of
    resources.
-  \begin{align*}
-    \text{\textbf{\textit{Shot-Noise (SN):}}}\hspace{0.5cm} \Delta^{2} \gamma &\sim \frac{1}{N} &
-                                                                                                            \text{\textbf{\textit{Heisenberg Scaling (HS):}}} \hspace{0.5cm}\Delta^{2} \gamma \sim \frac{1}{N^{2}}.
-  \end{align*}
+\[\scalebox{1.3}{$\displaytyle
+    \text{\textbf{\textit{Shot-Noise (SN):}}}\hspace{0.5cm}\Delta^{2}\gamma &\sim\frac{1}{N}$}\]
+\[\scalebox{1.3}{$\displaytyle
+    \text{\textbf{\textit{Heisenberg Scaling (HS):}}}\hspace{0.5cm}\Delta^{2}\gamma &\sim\frac{1}{N^{2}}$}\]
+
  \end{block}
 % -------------------------------
 % Section: Site selection and data collection
 % -------------------------------
  \begin{block}{Optimal Protocols and Quantum Metrology}
-  The CRB can be saturated by an appropiate choice of estimator. For a fixed initial state $\rho_{0}$ we maximize the FI
+  The CRB can be saturated by an appropiate choice of estimator. For a fixed initial state $\rho_{0}$ we maximize the
   FI, called the \textit{\textbf{Quantum Fisher Information (QFI)}} $\mathcal{F}(\gamma)$
    and usually calculated through the \textit{\textbf{Self-Adjoint Logarithmic Derivative (SLD)}}:
-  \begin{align*}
-     \mathcal{F}(\gamma) &= \mathrm{Tr}[\Lambda \partial_{\gamma}\rho_{\gamma}], & \Lambda \rho_{\gamma} + \Lambda \rho_{\gamma} =& \partial_{\gamma} \rho_{\gamma}
-  \end{align*}
    \\
+   \[\scalebox{1.3}{$\displaystyle
+     \mathcal{F}(\gamma) = \mathrm{Tr}[\Lambda \partial_{\gamma}\rho_{\gamma}] \hspace{5cm}  \Lambda \rho_{\gamma} +  \rho_{\gamma} \Lambda= 2\partial_{\gamma} \rho_{\gamma}
+     $}\]
+
   Properties:
 \begin{itemize}
         \item Pure states always offer a higher QFI.
-        \item For Unitary Dynamics $U_{\gamma}=\exp({\gamma iG})$, $\mathcal{F}(\gamma)=4\braket{\psi_{0} | G | \psi_{0}}$.
+        \item For Unitary Dynamics $U_{\gamma}=\exp({\gamma iG})$, $\mathcal{F}(\gamma)=4\Delta^{2}G$.
         \item the eigen-projectors of the SLD always define an optimal POVM.
 \end{itemize}
 \end{block}
-
-
 \end{column}
 \separatorcolumn
-
 \begin{column}{\colwidth}
 
 % -------------------------------
@@ -203,7 +198,6 @@ Different POVMs will lead to different FIs: some are better than others.
 % -------------------------------
 % Section: Results and discussion
 % -------------------------------
-
 \begin{block}{Unitary vs Markovian Non-unitary}
     \heading{Ideal Mach-Zender Interferometer}
      \input{images/figure2}
@@ -255,7 +249,9 @@ Fixing the encoding time to $t$.
 % -------------------------------
 % Section: References
 % -------------------------------
-
+\begin{block}{Acknowledgement}
+  The authors worked in this project as part of the collaboration \textit{Proyecto de regalías: Tecnologías cuánticas útiles para metrología y Computación Cuántica.}
+  \end{block}
   \begin{block}{References}
 
 \nocite{*}
