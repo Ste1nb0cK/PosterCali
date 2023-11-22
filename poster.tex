@@ -1,0 +1,209 @@
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[orientation=portrait,size=a0,scale=1.0]{beamerposter}
+\usetheme{gemini}
+\usecolortheme{nott}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+\usepackage{xcolor}
+\usepackage[skip=2pt,font=normalsize]{subcaption}
+\usepackage{adjustbox}
+
+% ----------------------------------
+% For plotting study methodology
+% ----------------------------------
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% Defining Tickz Style
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, text width = 10cm, draw=black, fill=white]
+
+% \tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, text width = 4.5cm, draw=black, fill=blue!30]
+
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, text width = 6cm, draw=black, fill=white, text width = 10cm]
+
+% \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+
+\tikzstyle{arrow} = [ultra thick,->,>=stealth]
+
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.45\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+% ====================
+% Title
+% ====================
+
+\title{Precision Bounds in Bosonic Channels}
+
+\author{Nicolás A. Niño-Salas \inst{1} \and Carlos Viviescas  \inst{2} }
+
+\institute[shortinst]{Universidad Nacional de Colombia }
+
+% ====================
+% Footer (optional)
+% ====================
+
+\footercontent{
+  \href{https:https://github.com/Ste1nb0cK}{\textbf{https:https://github.com/Ste1nb0cK}} \hfill
+  \textbf{Chaos \& Complexity Group} \hfill
+  \href{mailto:ninino@unal.edu.co}{\textbf{ninino@unal.edu.co}}}
+% (can be left out to remove footer)
+
+
+% ====================
+% Logo (optional)
+% ====================
+
+% use this to include logos on the left and/or right side of the header:
+\logoright{\includegraphics[height=6.3cm]{logos/dce_logo.png}}
+\logoleft{\includegraphics[height=7cm]{logos/iitb_logo.png}}
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+% ----------------------------------
+% Abstract
+% ----------------------------------
+  \begin{block}{Abstract}
+  \end{block}
+
+% ----------------------------------
+% Section: Literature review
+% ----------------------------------
+  \begin{block}{1.1 Introduction}
+  \end{block}
+
+% ----------------------------------
+% Section: Research objectives
+% ----------------------------------
+  \begin{block}{1.2 Measurement does Matter After All}
+  \end{block}
+
+% ----------------------------------
+% Section: Study methodology
+% ----------------------------------
+ \begin{alertblock}{1.3 Anatomy of a Metrology Protocol}
+ \end{alertblock}
+
+% -------------------------------
+% Section: Site selection and data collection
+% -------------------------------
+\begin{block}{1.4 Optimal Protocols}
+
+\end{block}
+\begin{block}{1.5 Unitary Case}
+
+\end{block}
+
+
+% -------------------------------
+% Section: Descriptive Statistics
+% -------------------------------
+\end{column}
+
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+% -------------------------------
+% Section: Results and discussion
+% -------------------------------
+
+\begin{block}{Examples}
+    \heading{Ideal Mach Zender Interferometer}
+
+    % \input{images/figure2}
+
+    % \input{tables/table1}
+
+\end{block}
+
+% -------------------------------
+% Section: Conclusions
+% -------------------------------
+   \begin{block}{Conclusions}
+     Todas las veo buenassssss, si bebo ronnnnnnnnnnnnn
+  \end{block}
+
+
+% -------------------------------
+% Section: What is already known about this subject?
+% -------------------------------
+  \begin{exampleblock}{Pseudo-Classical Input: Coherent States}
+MUJERIEGOOOOOOOOOOOOOOOO
+
+  \end{exampleblock}
+
+
+% -------------------------------
+% Section: What does this study add?
+% -------------------------------
+  \begin{exampleblock}{Non-Classical Input: Squeezed + Coherent States}
+
+  \end{exampleblock}
+
+
+% -------------------------------
+% Section: Practical Implications
+% -------------------------------
+  \begin{exampleblock}{Non-Classical Input: Fock States}
+POR LA CALLE EL DINERO Y EL ACOHOL
+  \end{exampleblock}
+
+% -------------------------------
+% Section: References
+% -------------------------------
+
+  \begin{block}{References}
+
+    \nocite{*}
+    \footnotesize{\bibliographystyle{plain}\bibliography{poster.bib}}
+
+  \end{block}
+
+% -------------------------------
+% Section: Portfolio
+% -------------------------------
+  \begin{block}{Supplemental Material}
+
+    \input{images/figure3}
+
+  \end{block}
+
+\end{column}
+\separatorcolumn
+\end{columns}
+\end{frame}
+
+\end{document}
