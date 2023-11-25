@@ -66,7 +66,7 @@
 % ====================
 
 \footercontent{
-  \href{https:https://github.com/Ste1nb0cK}{\textbf{https:https://github.com/Ste1nb0cK}} \hfill
+  \href{https://github.com/Ste1nb0cK}{\textbf{https:https://github.com/Ste1nb0cK}} \hfill
   \textbf{Chaos \& Complexity Group} \hfill
   \href{mailto:ninino@unal.edu.co}{\textbf{ninino@unal.edu.co}}}
 % (can be left out to remove footer)
@@ -99,52 +99,70 @@
 % ----------------------------------
 % Section: Literature review
 % ----------------------------------
-  \begin{block}{1.1 Introduction}
+  \begin{block}{Characterization of Quantum Channels}
   \end{block}
   Characterization of physical processes typically requires the determination of a parameter $\gamma$ in the model used to decribe it e.g.
   a dissipation parameter in a damped harmonic osscillator, its frequency or even the time elapsed. In quantum mechanics
-  all possible processes that a systems can undergo are described by a \textit{Completly Positive Trace Preserving} (\textbf{CPTP}) map, also
-  called a quantum channel, and all can be realized by:
+  all possible processes that a systems may undergo can be understood in an \textbf{\textit{Enviroment+System} (SE)} scheme,
+%Tweak the space respect to the image
+\vspace{-0.025\linewidth}
+
+  \include{images/figure0.tex}
+%Tweak the space respect to the image
+\vspace{-0.2\linewidth}
 {\LARGE
   \begin{equation*}
        \varepsilon_{\gamma}\left(\rho_{0}\right)=\mathrm{Tr}_{E}\left[ U_{\gamma}\left( \rho_{0} \otimes \sigma_{0} \right)U_{\gamma}^{\dagger}\right]=\rho_{\gamma}
   \end{equation*}
 }
-
-  hence the characterization of any physical process can be understood as the estimation of an unknown parameter $\gamma$.
+in which the \texttit{\textbf{Open Dynamics}} are induced by the marginalization of the unitary evolution of
+$\mathcal{H}_{S}\otimes\mathcal{H}_{E}$, hence the characterization of any physical process can be understood as the estimation of an unknown parameter $\gamma$.
 % ----------------------------------
 % Section: Research objectives
 % ----------------------------------
-  \begin{block}{1.2 Measurement does Matter After All}
+  \begin{block}{Not All Measurements are Made Equal}
     To actually perform the estimation one needs to measure the system, and for any measurement scheme there exists a \textit{Positive
-      Operator Values Measure} (\textbf{POVM}) $\{\Pi_{x}\}_{x \in \mathbb{R}}$ that describes its statistics:
+      Operator Valued Measure} (\textbf{POVM}) $\{\Pi_{x}\}_{x \in \mathbb{R}}$ that describes its statistics:
 {\LARGE
   \begin{equation*}
      \wp(x | \gamma)= \mathrm{Tr}\left[\Pi_{x} \rho_{\gamma}\right]
   \end{equation*}
 }
 from here one sees that once fixed the quantity to be measured our characterization task consists in estimating a parameter from a probability
-distribution, hence this is really a problem about \textit{Statistical Inference}.
-
-
-
-
-  \end{block}
+distribution, hence this is really a problem about \textit{Statistical Inference}, from which we know that any estimation strategy has a variance
+bounded from below by the inverse of the \texttit{\textbf{Fisher Information (FI)}}:
+{\Large
+  \begin{align*}
+    \Delta^{2}\gamma \leq & \frac{1}{F(\gamma)} & F(\gamma) = \int  \wp(x | \gamma) \left(\frac{\partial}{\partial\gamma} \mathrm{Ln}  [\wp(x |\gamma)]\right)^{2} dx,
+  \end{align*}
+}
+the LHS is known as the \texttit{\textbf{Cramer-Rao Bound (CRB)}}. Different POVMs will lead to different FIs, and so in terms precision some
+are better than others.
+\end{block}
 
 % ----------------------------------
 % Section: Study methodology
 % ----------------------------------
- \begin{block}{1.3 Anatomy of a Metrology Protocol}
+ \begin{block}{Anatomy of a Metrology Problem}
+   The objective of any metrology problem is to estimate the parameter of interest with the minimum possible error, given a fixed amount of a
+   certain resource e.g. the mean photon number in the probe.
+   % Tweak distance to the image
+   \vspace{-0.07\linewidth}
    \include{images/figure1}
  \end{block}
-
+ % Tweak distance to the image
+   \vspace{-0.07\linewidth}
+   The interesting thing about \textbf{\textit{Precision Bounds}} is not so much the actual value but their scaling with the number of resources
+   . For mean photon numbers $N$ we primarily talk about two: \textbf{\textit{Shot-Noise(SN)}} and \textbf{\textit{Heisenberg Scaling (HS)}}:
+ {\Large
+  \begin{align*}
+    \Delta \gamma &\sim \frac{1}{\sqrt{N}} & \Delta \gamma \sim \frac{1}{N}.
+  \end{align*}
+}
 % -------------------------------
 % Section: Site selection and data collection
 % -------------------------------
-\begin{block}{1.4 Optimal Protocols}
-
-\end{block}
-\begin{block}{1.5 Unitary Case}
+\begin{block}{Optimal Protocols}
 
 \end{block}
 
