@@ -10,6 +10,7 @@
 \usetheme{gemini}
 \usecolortheme{nott}
 \usepackage{graphicx}
+\usepackage{braket}
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -121,8 +122,8 @@ $\mathcal{H}_{S}\otimes\mathcal{H}_{E}$, hence the characterization of any physi
 % Section: Research objectives
 % ----------------------------------
   \begin{block}{Not All Measurements are Made Equal}
-    To actually perform the estimation one needs to measure the system, and for any measurement scheme there exists a \textit{Positive
-      Operator Valued Measure} (\textbf{POVM}) $\{\Pi_{x}\}_{x \in \mathbb{R}}$ that describes its statistics:
+    To actually perform the estimation one needs to measure the system, and for any measurement scheme there exists a \textbf{\textit{Positive
+      Operator Valued Measure (POVM)}} $\{\Pi_{x}\}_{x \in \mathbb{R}}$ that describes its statistics:
 {\LARGE
   \begin{equation*}
      \wp(x | \gamma)= \mathrm{Tr}\left[\Pi_{x} \rho_{\gamma}\right]
@@ -130,13 +131,13 @@ $\mathcal{H}_{S}\otimes\mathcal{H}_{E}$, hence the characterization of any physi
 }
 from here one sees that once fixed the quantity to be measured our characterization task consists in estimating a parameter from a probability
 distribution, hence this is really a problem about \textit{Statistical Inference}, from which we know that any estimation strategy has a variance
-bounded from below by the inverse of the \texttit{\textbf{Fisher Information (FI)}}:
+bounded from below by the inverse of the \textit{\textbf{Fisher Information (FI)}}:
 {\Large
   \begin{align*}
     \Delta^{2}\gamma \leq & \frac{1}{F(\gamma)} & F(\gamma) = \int  \wp(x | \gamma) \left(\frac{\partial}{\partial\gamma} \mathrm{Ln}  [\wp(x |\gamma)]\right)^{2} dx,
   \end{align*}
 }
-the LHS is known as the \texttit{\textbf{Cramer-Rao Bound (CRB)}}. Different POVMs will lead to different FIs, and so in terms precision some
+the LHS is known as the \textit{\textbf{Cramer-Rao Bound (CRB)}}. Different POVMs will lead to different FIs, and so in terms precision some
 are better than others.
 \end{block}
 
@@ -149,21 +150,34 @@ are better than others.
    % Tweak distance to the image
    \vspace{-0.07\linewidth}
    \include{images/figure1}
- \end{block}
  % Tweak distance to the image
-   \vspace{-0.07\linewidth}
-   The interesting thing about \textbf{\textit{Precision Bounds}} is not so much the actual value but their scaling with the number of resources
-   . For mean photon numbers $N$ we primarily talk about two: \textbf{\textit{Shot-Noise(SN)}} and \textbf{\textit{Heisenberg Scaling (HS)}}:
+   \vspace{-0.11\linewidth}
+   The interesting thing about  \textbf{\textit{Precision Bounds}} is not so much the actual value but the scaling with the number of resources.
+   For mean photon numbers we primarily talk about two: \textbf{\textit{Shot-Noise (SN)}} and \textbf{\textit{Heisenberg Scaling (HS)}}:
  {\Large
   \begin{align*}
     \Delta \gamma &\sim \frac{1}{\sqrt{N}} & \Delta \gamma \sim \frac{1}{N}.
   \end{align*}
 }
+ \end{block}
 % -------------------------------
 % Section: Site selection and data collection
 % -------------------------------
-\begin{block}{Optimal Protocols}
-
+\begin{block}{Optimal Protocols and Quantum Metrology}
+  It is always possible to saturate the CRB through an appropiate choice of estimator, so the physics problem is to find the maximum
+  FI.\ For a fixed initial state this is called the \textit{\textbf{Quantum Fisher Information (QFI)}} $\mathcal{F}(\gamma)$
+  and is typically calculated through the \textit{\textbf{Self-Adjoint Logarithmic Derivative (SLD)}}:
+  {\Large
+  \begin{align*}
+    \Lambda \rho_{\gamma} + \Lambda \rho_{\gamma} =& \partial_{\gamma} \rho_{\gamma} & \mathcal{F}(\gamma) = \mathrm{Tr}[\Lambda \partial_{\gamma}\rho_{\gamma}],
+  \end{align*}
+}
+and the POVM that produces it. A few important properties are:
+\begin{itemize}
+        \item Pure states always offer a higher QFI.
+        \item For Unitary Dynamics $U_{\gamma}=\mathrm{exp}({\gamma iG})$, $\mathcal{F}(\gamma)=4\braket{\psi_{0} | G | \psi_{0}}$.
+        \item the eigen-projectors of the SLD always define an optimal POVM.
+\end{itemize}
 \end{block}
 
 
