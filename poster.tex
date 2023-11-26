@@ -56,7 +56,7 @@
 % Title
 % ====================
 
-\title{Precision Bounds in Bosonic Channels}
+\title{Quantum  Super Precision in Parameter Estimation}
 
 \author{Nicolás A. Niño-Salas \inst{1} \and Carlos Viviescas  \inst{2} }
 
@@ -100,7 +100,7 @@
     Theory, and among all the information processing tasks one of the
     most important ones is parameter estimation as most of
     quantitative science requires for appropiate modeling. In this
-    work we present the local estimation framework for quantum
+    work we review the local estimation framework for quantum
     channels  as an appropiate formalism
     for characterizing any physical processes consistent with
     quantum mechanics, then we use it to construct measurement
@@ -211,53 +211,51 @@ The promise of \textbf{\textit{Quantum Metrology}} is to use non-classical behav
 % -------------------------------
 
 \begin{block}{Examples}
-    \heading{Frequency Difference in Ideal Mach-Zender Interferometer}
+    \heading{Ideal Mach-Zender Interferometer}
+    In this configuration we got to arms corresponding to light-modes with a difference frequency $\omega$.
      \vspace{-0.01\linewidth}
      \input{images/figure2}
      \vspace{-0.07\linewidth}
      \heading{Markovian Loss}
-     \vspace{-0.07\linewidth}
+     \vspace{-0.02\linewidth}
+     To demonstrate the differences with between unitary and non-unitary evolution we look at a light mode with
+     losses at zero temperature.
   {\Large
     \begin{equation*}
       \partial_{t}\rho = \frac{\gamma}{2}(2a\rho a^{\dagger}-a^{\dagger}a\rho - \rho a^{\dagger}a)
     \end{equation*}
 }
-Both of these can be understood as a \textit{phase-like estimation} from some dynamical generator, one unitary and one dissipative.
+For both cases we are fixing the encoding time $t$.
 \end{block}
 
 % -------------------------------
 % Section: Conclusions
 % -------------------------------
-   \begin{block}{Results}
-     The main result coming from the examples is that there do is
-     a possibility for quantum advantage, as we review below.
-  \end{block}
-
-
 % -------------------------------
 % Section: What is already known about this subject?
 % -------------------------------
   \begin{exampleblock}{Pseudo-Classical Input: Coherent States}
-    This is the most classical case. For the
-\begin{itemize}
-        \item $\mathcal{F}(\gamma) = $
-\end{itemize}
+    \LARGE{
+    $\mathcal{F}_{\text{frequency}}(\gamma) = 4t^{2}N\sin^{2}(\theta+\phi)$ }\\
+    $\mathcal{F}_{\text{loss}}(\gamma) =& N t^{2}e^{-t\gamma}$
   \end{exampleblock}
-
-
 % -------------------------------
 % Section: What does this study add?
 % -------------------------------
-  \begin{exampleblock}{Non-Classical Input: Squeezed + Coherent States}
-
+  \begin{exampleblock}{Non-Classical Input: Squeezed + Coherent State}
+    $$
+        \mathcal{F}_{\text{frequency}}(\gamma) &= t^{2}\left(\frac{1-\cos(4\theta)}{4}(N^{2}-M^{2})\left(1+\frac{2}{N-M} \right) +
+         N\left(5+\cos(2\theta) - M\left(\frac{1}{2} + \cos(2\theta) \right) \right)\right)
+    $$
+         \LARGE{$\mathcal{F}_{\text{loss}}(\gamma) = t^{2}N \frac{-2e^{\gamma t} +e^{2\gamma t}+2}{(e^{\gamma t}-1)(2e^{\gamma t}N-2N +e^{2\gamma t})}$}
   \end{exampleblock}
-
-
 % -------------------------------
 % Section: Practical Implications
 % -------------------------------
   \begin{exampleblock}{Non-Classical Input: Fock States}
-POR LA CALLE EL DINERO Y EL ACOHOL
+
+         \LARGE{$\mathcal{F}_{\text{frequency}}(\gamma) = t^{2}\sin(2\theta)\left( N+\frac{N^{2}}{2}-\frac{M^{2}}{2}\right)$}\\
+         \LARGE{$\mathcal{F}_{\text{loss}}(\gamma) = t^{2}N \frac{1}{e^{\gamma t}-1}$}
   \end{exampleblock}
 
 % -------------------------------
@@ -275,9 +273,7 @@ POR LA CALLE EL DINERO Y EL ACOHOL
 % Section: Portfolio
 % -------------------------------
   \begin{block}{Supplemental Material}
-
     \input{images/figure3}
-
   \end{block}
 
 \end{column}
