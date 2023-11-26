@@ -95,6 +95,20 @@
 % Abstract
 % ----------------------------------
   \begin{block}{Abstract}
+    The main promise of \textit{\textbf{Quantum Information Technology}} is to surpass all classical limits of information
+    processing by embracing the non-classical resources of Quantum
+    Theory, and among all the information processing tasks one of the
+    most important ones is parameter estimation as most of
+    quantitative science requires for appropiate modeling. In this
+    work we present the local estimation framework for quantum
+    channels  as an appropiate formalism
+    for characterizing any physical processes consistent with
+    quantum mechanics, then we use it to construct measurement
+    independt precision bounds for a Mach-Zender Interferometer,
+    identify \textit{\textbf{Squeezed States}} as a non-classical
+    aspect giving rise to a quadratic \textit{\textbf{Quantum Advantage}} and finally explore how markovian losses not only
+    destroy quantum advantages but lead to the lost of all precision
+    in the long encoding limit.
   \end{block}
 
 % ----------------------------------
@@ -134,7 +148,7 @@ distribution, hence this is really a problem about \textit{Statistical Inference
 bounded from below by the inverse of the \textit{\textbf{Fisher Information (FI)}}:
 {\Large
   \begin{align*}
-    \Delta^{2}\gamma \leq & \frac{1}{F(\gamma)} & F(\gamma) = \int  \wp(x | \gamma) \left(\frac{\partial}{\partial\gamma} \mathrm{Ln}  [\wp(x |\gamma)]\right)^{2} dx,
+    \Delta^{2}\gamma \geq & \frac{1}{F(\gamma)} & F(\gamma) = \int  \wp(x | \gamma) \left(\frac{\partial}{\partial\gamma} \mathrm{Ln}  [\wp(x |\gamma)]\right)^{2} dx,
   \end{align*}
 }
 the LHS is known as the \textit{\textbf{Cramer-Rao Bound (CRB)}}. Different POVMs will lead to different FIs, and so in terms precision some
@@ -163,6 +177,12 @@ are better than others.
 % -------------------------------
 % Section: Site selection and data collection
 % -------------------------------
+\end{column}
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+
 \begin{block}{Optimal Protocols and Quantum Metrology}
   It is always possible to saturate the CRB through an appropiate choice of estimator, so the physics problem is to find the maximum
   FI.\ For a fixed initial state this is called the \textit{\textbf{Quantum Fisher Information (QFI)}} $\mathcal{F}(\gamma)$
@@ -178,36 +198,39 @@ and the POVM that produces it. A few important properties are:
         \item For Unitary Dynamics $U_{\gamma}=\mathrm{exp}({\gamma iG})$, $\mathcal{F}(\gamma)=4\braket{\psi_{0} | G | \psi_{0}}$.
         \item the eigen-projectors of the SLD always define an optimal POVM.
 \end{itemize}
+The promise of \textbf{\textit{Quantum Metrology}} is to use non-classical behaviors to find \textit{\textbf{Quantum Advantages}} in scaling.
 \end{block}
 
 
 % -------------------------------
 % Section: Descriptive Statistics
 % -------------------------------
-\end{column}
-
-\separatorcolumn
-
-\begin{column}{\colwidth}
 
 % -------------------------------
 % Section: Results and discussion
 % -------------------------------
 
 \begin{block}{Examples}
-    \heading{Ideal Mach Zender Interferometer}
-
-    % \input{images/figure2}
-
-    % \input{tables/table1}
-
+    \heading{Frequency Difference in Ideal Mach-Zender Interferometer}
+     \vspace{-0.01\linewidth}
+     \input{images/figure2}
+     \vspace{-0.07\linewidth}
+     \heading{Markovian Loss}
+     \vspace{-0.07\linewidth}
+  {\Large
+    \begin{equation*}
+      \partial_{t}\rho = \frac{\gamma}{2}(2a\rho a^{\dagger}-a^{\dagger}a\rho - \rho a^{\dagger}a)
+    \end{equation*}
+}
+Both of these can be understood as a \textit{phase-like estimation} from some dynamical generator, one unitary and one dissipative.
 \end{block}
 
 % -------------------------------
 % Section: Conclusions
 % -------------------------------
-   \begin{block}{Conclusions}
-     Todas las veo buenassssss, si bebo ronnnnnnnnnnnnn
+   \begin{block}{Results}
+     The main result coming from the examples is that there do is
+     a possibility for quantum advantage, as we review below.
   \end{block}
 
 
@@ -215,8 +238,10 @@ and the POVM that produces it. A few important properties are:
 % Section: What is already known about this subject?
 % -------------------------------
   \begin{exampleblock}{Pseudo-Classical Input: Coherent States}
-MUJERIEGOOOOOOOOOOOOOOOO
-
+    This is the most classical case. For the
+\begin{itemize}
+        \item $\mathcal{F}(\gamma) = $
+\end{itemize}
   \end{exampleblock}
 
 
