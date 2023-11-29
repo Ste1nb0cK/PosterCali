@@ -8,7 +8,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[orientation=portrait,size=a0,scale=1.15]{beamerposter}
+\usepackage[orientation=portrait,size=a0,scale=1.2]{beamerposter}
 \usetheme{gemini}
 \usecolortheme{nott}
 \usepackage{graphicx}
@@ -23,6 +23,8 @@
 \usepackage{adjustbox}
 \usepackage[backend=biber, style=nature]{biblatex}
 \addbibresource{poster.bib}
+\renewcommand*{\bibfont}{\footnotesize} % Or \footnotesize, or any other desired size
+
 % ----------------------------------
 % For plotting study methodology
 % ----------------------------------
@@ -59,7 +61,7 @@
 % Title
 % ====================
 
-\title{Quantum  Super Precision in Parameter Estimation}
+\title{ Precision Bounds in Bosonic Channels}
 
 \author{Nicolás A. Niño-Salas  \and Carlos Viviescas }
 
@@ -70,7 +72,7 @@
 % ====================
 
 \footercontent{
-  \href{https://github.com/Ste1nb0cK}{\textbf{https:https://github.com/Ste1nb0cK}} \hfill
+  \href{github.com/Ste1nb0cK}{\textbf{https:https://github.com/Ste1nb0cK}} \hfill
   \textbf{Chaos \& Complexity Group} \hfill
   \href{mailto:ninino@unal.edu.co}{\textbf{ninino@unal.edu.co}}}
 % (can be left out to remove footer)
@@ -98,12 +100,12 @@
 % Abstract
 % ----------------------------------
   \begin{block}{Abstract}
-    The main promise of \textit{\textbf{Quantum Metrology}} is to surpass all classical limits of parameter estimation
+    The main promise of \textit{\textbf{Quantum Metrology}} is to surpass all classical limits of \mbox{parameter} estimation
     by embracing the non-classical resources of \textbf{\textit{Quantum
         Systems}}.
     In this work we review the local estimation framework for quantum
     channels, and use it to derive measurement
-    independent precision bounds for a Mach-Zender Interferometer and a Markovian Dynamic.
+    independent precision bounds for a Mach-Zender \mbox{Interferometer} and a Markovian Dynamic.
     In the process we identify \textit{\textbf{Squeezed}} and \textit{\textbf{Fock States}} as  non-classical
     states giving rise to quadratic \textit{\textbf{Quantum Advantage}}, and show markovian losses not only
     destroy  the advantage but lead to the loss of all precision in the long encoding limit.
@@ -165,8 +167,8 @@ Different POVMs will lead to different FIs: some are better than others.
    The interesting thing about  \textbf{\textit{Precision Bounds}} is not so much the actual value but how it scales with the number of
    resources.
   \begin{align*}
-    \text{\textbf{\textit{Shot-Noise (SN):}}}\hspace{0.5cm} \Delta \gamma &\sim \frac{1}{\sqrt{N}} &
-                                                                                                            \text{\textbf{\textit{Heisenberg Scaling (HS):}}} \hspace{0.5cm}\Delta \gamma \sim \frac{1}{N}.
+    \text{\textbf{\textit{Shot-Noise (SN):}}}\hspace{0.5cm} \Delta^{2} \gamma &\sim \frac{1}{N} &
+                                                                                                            \text{\textbf{\textit{Heisenberg Scaling (HS):}}} \hspace{0.5cm}\Delta^{2} \gamma \sim \frac{1}{N^{2}}.
   \end{align*}
  \end{block}
 % -------------------------------
@@ -202,18 +204,22 @@ Different POVMs will lead to different FIs: some are better than others.
 % Section: Results and discussion
 % -------------------------------
 
-\begin{block}{Examples}
+\begin{block}{Unitary vs Markovian Non-unitary}
     \heading{Ideal Mach-Zender Interferometer}
      \input{images/figure2}
-     \heading{Markovian Loss}
-     To demonstrate the differences with between unitary and non-unitary evolution we look at a light mode with
-     losses at zero temperature.
+     % \Large{
+     % \begin{align}
+       % V =& e^{i\theta\left(  a_{2}a_{1}^{\dagger}+a_{1}a_{2}^{\dagger}\right)} &
+                                                                                  % U = Ve^{-iHt}V
+     % \end{align}}
+     \heading{Zero Temperature Enviroment}
+     \vspace{-0.05\linewidth}
   {\Large
     \begin{equation*}
       \partial_{t}\rho = \frac{\gamma}{2}(2a\rho a^{\dagger}-a^{\dagger}a\rho - \rho a^{\dagger}a)
     \end{equation*}
 }
-For both cases we are fixing the encoding time $t$.
+Fixing the encoding time to $t$.
 \end{block}
 
 % -------------------------------
@@ -222,47 +228,43 @@ For both cases we are fixing the encoding time $t$.
 % -------------------------------
 % Section: What is already known about this subject?
 % -------------------------------
-  \begin{exampleblock}{Pseudo-Classical Input: Coherent States}
-    \LARGE{
-    $\mathcal{F}_{\text{frequency}}(\gamma) = 4t^{2}N\sin^{2}(\theta+\phi)$ }\\
-    $\mathcal{F}_{\text{loss}}(\gamma) =& N t^{2}e^{-t\gamma}$
+  \begin{exampleblock}{Results}
+    The QFI for big mean photon number $N$ is presented below for various probes and  the minimum relative variance for the loss estimation as a function of $\gamma t$.
+    \include{table/table1.tex}
+    \vspace{-0.1\linewidth}
+    \include{images/figure3.tex}
+    \vspace{-0.1\linewidth}
   \end{exampleblock}
-% -------------------------------
-% Section: What does this study add?
-% -------------------------------
-  \begin{exampleblock}{Non-Classical Input: Squeezed + Coherent State}
-    $$
-        \mathcal{F}_{\text{frequency}}(\gamma) &= t^{2}\left(\frac{1-\cos(4\theta)}{4}(N^{2}-M^{2})\left(1+\frac{2}{N-M} \right) +
-         N\left(5+\cos(2\theta) - M\left(\frac{1}{2} + \cos(2\theta) \right) \right)\right)
-    $$
-         \LARGE{$\mathcal{F}_{\text{loss}}(\gamma) = t^{2}N \frac{-2e^{\gamma t} +e^{2\gamma t}+2}{(e^{\gamma t}-1)(2e^{\gamma t}N-2N +e^{2\gamma t})}$}
-  \end{exampleblock}
-% -------------------------------
-% Section: Practical Implications
-% -------------------------------
-  \begin{exampleblock}{Non-Classical Input: Fock States}
-
-         \LARGE{$\mathcal{F}_{\text{frequency}}(\gamma) = t^{2}\sin(2\theta)\left( N+\frac{N^{2}}{2}-\frac{M^{2}}{2}\right)$}\\
-         \LARGE{$\mathcal{F}_{\text{loss}}(\gamma) = t^{2}N \frac{1}{e^{\gamma t}-1}$}
-  \end{exampleblock}
-
+\begin{alertblock}{Discussion}
+  \begin{itemize}
+    \item In the unitary case \textbf{Non-Classical Probes} have a quadratic advantage in the photon number.
+    \item The precision bound for the unitary case is independent on the actual value of the parameter.
+    \item Contrary to the scaling with the number of probes, in photon mean number  \textbf{Super HS} scaling is possible \cite{jiao_quantum_2023}.
+    \item Markovian noise degrades the scalings back to \textbf{SN}, and makes the \textbf{QFI} decay exponentially.
+    \item In the loss estimation there is an optimal encoding time.
+  \end{itemize}
+\end{alertblock}
+\begin{alertblock}{Conclusions and Future Work}
+  \begin{itemize}
+    \item Quantum systems offer a considerable advantage in parameter estimation.
+    \item Quantum Information Theory gives fundamental precision bounds.
+    \item Markovian noise constitutes a no-go in practical applications
+    \item Non-markovian models and control protocols are necessary for \textbf{Q-Metrology} to be a viable technology.
+  \end{itemize}
+\end{alertblock}
 % -------------------------------
 % Section: References
 % -------------------------------
 
   \begin{block}{References}
 
-    \nocite{*}
-    \footnotesize{\printbibliography{}}
-
+\nocite{*}
+    \small
+    {
+    \printbibliography{}}
+  %
   \end{block}
 
-% -------------------------------
-% Section: Portfolio
-% -------------------------------
-  \begin{block}{Supplemental Material}
-    \input{images/figure3}
-  \end{block}
 
 \end{column}
 \separatorcolumn
