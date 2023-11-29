@@ -3,10 +3,12 @@
 % ====================
 % Packages
 % ====================
+ % \usepackage{layouts}
+ % \printinunitsof{in}\prntlen{\columnwidth}
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[orientation=portrait,size=a0,scale=1.0]{beamerposter}
+\usepackage[orientation=portrait,size=a0,scale=1.15]{beamerposter}
 \usetheme{gemini}
 \usecolortheme{nott}
 \usepackage{graphicx}
@@ -19,7 +21,8 @@
 \usepackage{xcolor}
 \usepackage[skip=2pt,font=normalsize]{subcaption}
 \usepackage{adjustbox}
-
+\usepackage[backend=biber, style=nature]{biblatex}
+\addbibresource{poster.bib}
 % ----------------------------------
 % For plotting study methodology
 % ----------------------------------
@@ -58,7 +61,7 @@
 
 \title{Quantum  Super Precision in Parameter Estimation}
 
-\author{Nicolás A. Niño-Salas \inst{1} \and Carlos Viviescas  \inst{2} }
+\author{Nicolás A. Niño-Salas  \and Carlos Viviescas }
 
 \institute[shortinst]{Universidad Nacional de Colombia, Sede Bogotá }
 
@@ -95,112 +98,101 @@
 % Abstract
 % ----------------------------------
   \begin{block}{Abstract}
-    The main promise of \textit{\textbf{Quantum Information Technology}} is to surpass all classical limits of information
-    processing by embracing the non-classical resources of Quantum
-    Theory, and among all the information processing tasks one of the
-    most important ones is parameter estimation as most of
-    quantitative science requires for appropiate modeling. In this
-    work we review the local estimation framework for quantum
-    channels  as an appropiate formalism
-    for characterizing any physical processes consistent with
-    quantum mechanics, then we use it to construct measurement
-    independt precision bounds for a Mach-Zender Interferometer,
-    identify \textit{\textbf{Squeezed States}} as a non-classical
-    aspect giving rise to a quadratic \textit{\textbf{Quantum Advantage}} and finally explore how markovian losses not only
-    destroy quantum advantages but lead to the lost of all precision
-    in the long encoding limit.
+    The main promise of \textit{\textbf{Quantum Metrology}} is to surpass all classical limits of parameter estimation
+    by embracing the non-classical resources of \textbf{\textit{Quantum
+        Systems}}.
+    In this work we review the local estimation framework for quantum
+    channels, and use it to derive measurement
+    independent precision bounds for a Mach-Zender Interferometer and a Markovian Dynamic.
+    In the process we identify \textit{\textbf{Squeezed}} and \textit{\textbf{Fock States}} as  non-classical
+    states giving rise to quadratic \textit{\textbf{Quantum Advantage}}, and show markovian losses not only
+    destroy  the advantage but lead to the loss of all precision in the long encoding limit.
+
   \end{block}
 
 % ----------------------------------
 % Section: Literature review
 % ----------------------------------
   \begin{block}{Characterization of Quantum Channels}
-  \end{block}
   Characterization of physical processes typically requires the determination of a parameter $\gamma$ in the model used to decribe it e.g.
-  a dissipation parameter in a damped harmonic osscillator, its frequency or even the time elapsed. In quantum mechanics
-  all possible processes that a systems may undergo can be understood in an \textbf{\textit{Enviroment+System} (SE)} scheme,
-%Tweak the space respect to the image
-\vspace{-0.025\linewidth}
-
+  a dissipation parameter in a damped harmonic osscillator, its frequency or even the time elapsed.%Tweak the space respect to the image
+\vspace{-0.04\linewidth}
   \include{images/figure0.tex}
 %Tweak the space respect to the image
-\vspace{-0.2\linewidth}
-{\LARGE
+ \vspace{-0.15\linewidth}
+{\Large
   \begin{equation*}
        \varepsilon_{\gamma}\left(\rho_{0}\right)=\mathrm{Tr}_{E}\left[ U_{\gamma}\left( \rho_{0} \otimes \sigma_{0} \right)U_{\gamma}^{\dagger}\right]=\rho_{\gamma}
   \end{equation*}
 }
+  In quantum mechanics all possible processes that a systems may undergo can be viewed in an \textbf{\textit{Enviroment+System} (SE)} scheme,
 in which the \texttit{\textbf{Open Dynamics}} are induced by the marginalization of the unitary evolution of
-$\mathcal{H}_{S}\otimes\mathcal{H}_{E}$, hence the characterization of any physical process can be understood as the estimation of an unknown parameter $\gamma$.
+$\mathcal{H}_{S}\otimes\mathcal{H}_{E}$: the characterization of any physical process can be understood as the estimation of an unknown parameter $\gamma$.
+  \end{block}
 % ----------------------------------
 % Section: Research objectives
 % ----------------------------------
   \begin{block}{Not All Measurements are Made Equal}
-    To actually perform the estimation one needs to measure the system, and for any measurement scheme there exists a \textbf{\textit{Positive
-      Operator Valued Measure (POVM)}} $\{\Pi_{x}\}_{x \in \mathbb{R}}$ that describes its statistics:
-{\LARGE
-  \begin{equation*}
+    To actually perform the estimation one needs choose a quantity $x$ to measure and a \textbf{\textit{Positive
+      Operator Valued Measure (POVM)}} $\{\Pi_{x}\}_{x \in \mathbb{R}}$.\\
+% {\Large
+   \begin{equation*}
      \wp(x | \gamma)= \mathrm{Tr}\left[\Pi_{x} \rho_{\gamma}\right]
-  \end{equation*}
-}
-from here one sees that once fixed the quantity to be measured our characterization task consists in estimating a parameter from a probability
-distribution, hence this is really a problem about \textit{Statistical Inference}, from which we know that any estimation strategy has a variance
-bounded from below by the inverse of the \textit{\textbf{Fisher Information (FI)}}:
-{\Large
+   \end{equation*}
+% }
+The task is estimating a parameter from a probability
+distribution: \textit{\textbf{Statistical Inference}}.
+Any estimator has a variance bounded from below by the inverse of the \textit{\textbf{Fisher Information (FI)}}:
+% {\Large
   \begin{align*}
-    \Delta^{2}\gamma \geq & \frac{1}{F(\gamma)} & F(\gamma) = \int  \wp(x | \gamma) \left(\frac{\partial}{\partial\gamma} \mathrm{Ln}  [\wp(x |\gamma)]\right)^{2} dx,
+    \Delta^{2}\gamma \geq & \frac{1}{F(\gamma)} & F(\gamma) = \int  \wp(x | \gamma) \left(\frac{\partial}{\partial\gamma} \mathrm{Ln}  [\wp(x |\gamma)]\right)^{2} dx.
   \end{align*}
-}
-the LHS is known as the \textit{\textbf{Cramer-Rao Bound (CRB)}}. Different POVMs will lead to different FIs, and so in terms precision some
-are better than others.
+% }
+The LHS is known as the \textit{\textbf{Cramer-Rao Bound (CRB)}}.\\
+Different POVMs will lead to different FIs: some are better than others.
 \end{block}
 
 % ----------------------------------
 % Section: Study methodology
 % ----------------------------------
  \begin{block}{Anatomy of a Metrology Problem}
-   The objective of any metrology problem is to estimate the parameter of interest with the minimum possible error, given a fixed amount of a
-   certain resource e.g. the mean photon number in the probe.
+   The objective of any metrology problem is, given a fixed amount of resources, to estimate a parameter with the minimum possible error.
    % Tweak distance to the image
    \vspace{-0.07\linewidth}
    \include{images/figure1}
  % Tweak distance to the image
    \vspace{-0.11\linewidth}
-   The interesting thing about  \textbf{\textit{Precision Bounds}} is not so much the actual value but the scaling with the number of resources.
-   For mean photon numbers we primarily talk about two: \textbf{\textit{Shot-Noise (SN)}} and \textbf{\textit{Heisenberg Scaling (HS)}}:
- {\Large
+   The interesting thing about  \textbf{\textit{Precision Bounds}} is not so much the actual value but how it scales with the number of
+   resources.
   \begin{align*}
-    \Delta \gamma &\sim \frac{1}{\sqrt{N}} & \Delta \gamma \sim \frac{1}{N}.
+    \text{\textbf{\textit{Shot-Noise (SN):}}}\hspace{0.5cm} \Delta \gamma &\sim \frac{1}{\sqrt{N}} &
+                                                                                                            \text{\textbf{\textit{Heisenberg Scaling (HS):}}} \hspace{0.5cm}\Delta \gamma \sim \frac{1}{N}.
   \end{align*}
-}
  \end{block}
 % -------------------------------
 % Section: Site selection and data collection
 % -------------------------------
+ \begin{block}{Optimal Protocols and Quantum Metrology}
+  The CRB can be saturated by an appropiate choice of estimator. For a fixed initial state $\rho_{0}$ we maximize the FI
+  FI, called the \textit{\textbf{Quantum Fisher Information (QFI)}} $\mathcal{F}(\gamma)$
+   and usually calculated through the \textit{\textbf{Self-Adjoint Logarithmic Derivative (SLD)}}:
+  \begin{align*}
+     \mathcal{F}(\gamma) &= \mathrm{Tr}[\Lambda \partial_{\gamma}\rho_{\gamma}], & \Lambda \rho_{\gamma} + \Lambda \rho_{\gamma} =& \partial_{\gamma} \rho_{\gamma}
+  \end{align*}
+   \\
+  Properties:
+\begin{itemize}
+        \item Pure states always offer a higher QFI.
+        \item For Unitary Dynamics $U_{\gamma}=\exp({\gamma iG})$, $\mathcal{F}(\gamma)=4\braket{\psi_{0} | G | \psi_{0}}$.
+        \item the eigen-projectors of the SLD always define an optimal POVM.
+\end{itemize}
+\end{block}
+
+
 \end{column}
 \separatorcolumn
 
 \begin{column}{\colwidth}
-
-
-\begin{block}{Optimal Protocols and Quantum Metrology}
-  It is always possible to saturate the CRB through an appropiate choice of estimator, so the physics problem is to find the maximum
-  FI.\ For a fixed initial state this is called the \textit{\textbf{Quantum Fisher Information (QFI)}} $\mathcal{F}(\gamma)$
-  and is typically calculated through the \textit{\textbf{Self-Adjoint Logarithmic Derivative (SLD)}}:
-  {\Large
-  \begin{align*}
-    \Lambda \rho_{\gamma} + \Lambda \rho_{\gamma} =& \partial_{\gamma} \rho_{\gamma} & \mathcal{F}(\gamma) = \mathrm{Tr}[\Lambda \partial_{\gamma}\rho_{\gamma}],
-  \end{align*}
-}
-and the POVM that produces it. A few important properties are:
-\begin{itemize}
-        \item Pure states always offer a higher QFI.
-        \item For Unitary Dynamics $U_{\gamma}=\mathrm{exp}({\gamma iG})$, $\mathcal{F}(\gamma)=4\braket{\psi_{0} | G | \psi_{0}}$.
-        \item the eigen-projectors of the SLD always define an optimal POVM.
-\end{itemize}
-The promise of \textbf{\textit{Quantum Metrology}} is to use non-classical behaviors to find \textit{\textbf{Quantum Advantages}} in scaling.
-\end{block}
-
 
 % -------------------------------
 % Section: Descriptive Statistics
@@ -212,12 +204,8 @@ The promise of \textbf{\textit{Quantum Metrology}} is to use non-classical behav
 
 \begin{block}{Examples}
     \heading{Ideal Mach-Zender Interferometer}
-    In this configuration we got to arms corresponding to light-modes with a difference frequency $\omega$.
-     \vspace{-0.01\linewidth}
      \input{images/figure2}
-     \vspace{-0.07\linewidth}
      \heading{Markovian Loss}
-     \vspace{-0.02\linewidth}
      To demonstrate the differences with between unitary and non-unitary evolution we look at a light mode with
      losses at zero temperature.
   {\Large
@@ -265,7 +253,7 @@ For both cases we are fixing the encoding time $t$.
   \begin{block}{References}
 
     \nocite{*}
-    \footnotesize{\bibliographystyle{plain}\bibliography{poster.bib}}
+    \footnotesize{\printbibliography{}}
 
   \end{block}
 
